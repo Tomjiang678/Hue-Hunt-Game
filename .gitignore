@@ -1,0 +1,8 @@
+# 忽略 PyCharm 配置文件夹
+.idea/
+
+# 忽略 Python 缓存文件夹
+__pycache__/
+
+# 忽略构建文件夹
+build/
