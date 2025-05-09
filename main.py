@@ -47,13 +47,13 @@ score = 0
 playing = True
 while playing:  #if clicking QUIT, playing = False, then the game quits
     #init ball_start_color and ball_end_color
-    ball_start_color = (random.randint(30, 250), random.randint(30, 250), random.randint(30, 250))
+    ball_start_color = (random.randint(50, 250), random.randint(50, 250), random.randint(50, 250)) #随机小球颜色
     color_error_ratio = 0.5
     ball_end_color = tuple(int(x * color_error_ratio) for x in ball_start_color)
     # init balls
     balls = []
     ball_velocities = []
-    balls_num = min(max(score // 8 + 3 , 5), 20)  # balls_num will increase with the score
+    balls_num = min(max(score // 8 + 3 , 5), 20)  # 球数量随分数增加，但最大值为20
     #init balls_color
     balls_color = GCG.generate_color_gradient(ball_start_color, ball_end_color, balls_num)
     for i in range(balls_num):
@@ -80,11 +80,11 @@ while playing:  #if clicking QUIT, playing = False, then the game quits
     running = True
     click_mode = None
     if score < 100:     # TOTAL_TIME will increase with the score
-       TOTAL_TIME = 7
+       TOTAL_TIME = 10
     elif 100 <= score <= 200:
-        TOTAL_TIME = 7 + 3 * (score - 100) / 100
+        TOTAL_TIME = 20 - 2 * (20 - balls_num)
     else:
-        TOTAL_TIME = 10
+        TOTAL_TIME = 20
     start_ticks = pygame.time.get_ticks()
     while running:#if losing games, running = False, but still playing
         for event in pygame.event.get():
